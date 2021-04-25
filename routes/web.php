@@ -13,6 +13,21 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/', function (){
+    return "Welcome to weDevs";
 });
+
+
+// Order
+$router->get('order-details/{id}', 'OrderController@index');
+$router->post('order-store', 'OrderController@store');
+$router->delete('order-delete/{id}', 'OrderController@destroy');
+
+
+// Product
+$router->get('product', 'ProductController@index');
+
+
+//user
+$router->post('user-login', 'UserController@login');
+
