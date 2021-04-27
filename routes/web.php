@@ -19,15 +19,16 @@ $router->get('/', function (){
 
 
 // Order
-$router->get('order-details/{id}', 'OrderController@index');
-$router->post('order-store', 'OrderController@store');
-$router->delete('order-delete/{id}', 'OrderController@destroy');
+$router->get('order-details/{id}', ['middleware'=>'auth', 'uses'=>'OrderController@index']);
+$router->post('order-store', ['middleware'=>'auth', 'uses'=>'OrderController@store']);
+$router->delete('order-delete/{id}', ['middleware'=>'auth', 'uses'=>'OrderController@destroy']);
 
 
 // Product
-$router->get('product', 'ProductController@index');
+$router->get('product', ['middleware'=>'auth', 'uses'=>'ProductController@index']);
+$router->get('product/{id}', ['middleware'=>'auth', 'uses'=>'ProductController@getProduct']);
 
 
 //user
-$router->post('user-login', 'UserController@login');
+$router->post('user-login', ['middleware'=>'auth', 'uses'=>'UserController@login']);
 

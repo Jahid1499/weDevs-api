@@ -18,6 +18,14 @@ class ProductController extends Controller
         return response()->json($data);
     }
 
+    public function getProduct($id)
+    {
+        $data = Product::where('status', 1)
+            ->where('id', $id)
+            ->get();
+        return response()->json($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

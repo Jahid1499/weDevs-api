@@ -43,7 +43,7 @@ class OrderController extends Controller
         $order->product_id = $request->product_id;
         $order->user_id = $request->user_id;
         $order->payment_status = $request->payment_status;
-        $order->order_status = 0;
+        $order->order_status = $request->order_status;
         $order->total = $request->total;
         $order->quantity = $request->quantity;
 
