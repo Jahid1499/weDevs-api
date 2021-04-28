@@ -39,20 +39,23 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
+
+        $myData = json_decode($request->getContent(), true);
+
         $order = new Order();
-        $order->product_id = $request->product_id;
-        $order->user_id = $request->user_id;
-        $order->payment_status = $request->payment_status;
-        $order->order_status = $request->order_status;
-        $order->total = $request->total;
-        $order->quantity = $request->quantity;
+        $order->product_id =$myData['product_id'];
+        $order->user_id =$myData['user_id'];
+        $order->payment_status =$myData['payment_status'];
+        $order->order_status =$myData['order_status'];
+        $order->total =$myData['total'];
+        $order->quantity =$myData['quantity'];
 
         $result = $order->save();
         if ($result)
         {
-            return "true";
+            return "Thank you for place order";
         }else{
-            return "false";
+            return "Some thing wrong";
         }
     }
 
@@ -101,9 +104,9 @@ class OrderController extends Controller
         $result = Order::where('id', $id)->delete();
         if ($result)
         {
-            return "true";
+            return "Successfully order deleted";
         }else{
-            return "false";
+            return "Someting worng";
         }
     }
 }

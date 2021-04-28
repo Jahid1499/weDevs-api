@@ -30,5 +30,5 @@ $router->get('product/{id}', ['middleware'=>'auth', 'uses'=>'ProductController@g
 
 
 //user
-$router->post('user-login', ['middleware'=>'auth', 'uses'=>'UserController@login']);
+$router->get('user-login', ['middleware'=>'auth', 'uses'=>'UserController@login']);
 

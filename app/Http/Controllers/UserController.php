@@ -21,6 +21,7 @@ class UserController extends Controller
     {
         $email = $request->email;
         $password = md5($request->password);
+
         $user = User::where('email', $email)
             ->where('password', $password)
             ->first();
